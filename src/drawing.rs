@@ -103,7 +103,7 @@ impl Command {
             }
 
             Self::EraseCanvas => drawing_canvas.clear_canvas(),
-            _ => {} // good placeholder
+            // _ => {} // good placeholder
         }
     }
 }
