@@ -20,7 +20,7 @@ index_on_404 = true
 [web.resource]
 
 # Additional CSS style files
-style = ["/main.css"]
+style = ["assets/main.css"]
 
 # Additional JavaScript files
 script = []
