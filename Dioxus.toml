@@ -5,7 +5,7 @@ name = "drawing_app_video"
 out_dir = "docs"
 default_platform = "web"
 
-asset_dir = "assets"
+# asset_dir = "assets"
 [web.app]
 
 # HTML title tag content
