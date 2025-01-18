@@ -1,0 +1,32 @@
+[application]
+
+# App (Project) Name
+name = "drawing_app_video"
+out_dir = "docs"
+default_platform = "web"
+
+asset_dir = "assets"
+[web.app]
+
+# HTML title tag content
+title = "drawing_app_video"
+
+# include `assets` in web platform
+
+[web.watcher]
+watch_path = ["src", "assets", "index.html"]
+index_on_404 = true
+
+[web.resource]
+
+# Additional CSS style files
+style = ["/main.css"]
+
+# Additional JavaScript files
+script = []
+
+[web.resource.dev]
+
+# Javascript code file
+# serve: [dev-server] only
+script = []
