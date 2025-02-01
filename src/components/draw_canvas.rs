@@ -1,3 +1,5 @@
+// draw_canvas
+
 use crate::app_state::AppState;
 use crate::drawing::*;
 use dioxus::prelude::*;
@@ -62,11 +64,11 @@ pub fn DrawCanvas() -> Element {
             onmousedown: Arc::new(Mutex::new(move || {
                 current_path.push(current_point());
                 drawing_canvas.begin_path();
-                drawing_canvas.erase(current_point());
+                drawing_canvas.erase(current_point(), line_width());
             })),
             onmousemove: Arc::new(Mutex::new(move || {
                 current_path.push(current_point());
-                drawing_canvas.erase(current_point());
+                drawing_canvas.erase(current_point(), line_width());
             })),
             onmouseup: Arc::new(Mutex::new(move || {
                 undo_commands.push(Command::ErasePath(Path {
@@ -225,7 +227,7 @@ pub fn DrawCanvas() -> Element {
                 onmousedown: move |event| mouse_down_handler.clone()(event),
                 onmousemove: move |event| mouse_move_handler.clone()(event),
 
-                // onmouseleave: move |_event| mouse_up_handler(), //leave and up have the same
+                // onmouseleave: move |_event| mouse_up_handler.clone()(), //leave and up have the same
                 onmouseup: move |_event| mouse_up_handler.clone()(),
             }
 

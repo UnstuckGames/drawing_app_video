@@ -99,7 +99,7 @@ impl Command {
             Self::ErasePath(path) => {
                 path.points
                     .iter()
-                    .for_each(|point| drawing_canvas.erase(*point));
+                    .for_each(|point| drawing_canvas.erase(*point, path.line_width));
             }
 
             Self::EraseCanvas => drawing_canvas.clear_canvas(),
@@ -167,14 +167,14 @@ pub struct DrawingCanvas {
 }
 
 impl DrawingCanvas {
-    pub fn erase(&self, point: ElementPoint) {
+    pub fn erase(&self, point: ElementPoint, line_width: f64) {
         let ctx = self.get_context();
-        let eraser_size = 10.0;
+        let eraser_size = line_width;
         ctx.clear_rect(
             point.x - eraser_size / 2.0,
             point.y - eraser_size / 2.0,
-            10.0,
-            10.0,
+            line_width,
+            line_width,
         );
     }
 
